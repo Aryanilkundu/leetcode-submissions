@@ -7,4 +7,6 @@ class Solution:
                 ct[nums[i]]+=1
                 if ct[nums[i]] > len(nums)//3:
                     seen.add(nums[i])
+                if len(seen) ==2:
+                    break
         return list(seen)
