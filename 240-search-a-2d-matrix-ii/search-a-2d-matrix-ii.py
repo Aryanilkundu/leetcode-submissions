@@ -32,7 +32,17 @@ class Solution:
             else:
                 ans_c = max(ans_c,mid)
                 l=mid+1
-        for i in range(ans_r+1):
+        l=0
+        r = ans_r
+        min_ans_r = 0
+        while l<=r:
+            mid = int((l+r)//2)
+            if matrix[mid][-1] > target:
+                r = mid -1
+            else:
+                min_ans_r = max(min_ans_r,mid)
+                l=mid+1
+        for i in range(min_ans_r,ans_r+1):
             row = matrix[i]
             if bin_search(row,0,ans_c):
                 return True
