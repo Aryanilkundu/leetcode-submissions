@@ -1,9 +1,15 @@
-class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
-        ans = nums[0]
-        current = nums[0]
+class Solution(object):
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        m = nums
+        ans = m[0]
         for i in range(1,len(nums)):
-            current = max(current+nums[i],nums[i])
-            ans = max(ans,current)
+            m[i] = max(m[i-1]+nums[i],nums[i])
+            ans = max(ans,m[i])
+        return ans
 
-        return ans 
+
+        
